@@ -1,5 +1,5 @@
-!/bin/bash
-echo "Provisioning virtual machine ..."
-# apt-get update
-# apt-get install python3-venv -y
-echo "Provisioning done!"
+#!/bin/bash
+MACHINE_NO="machines"
+echo "Provisioning $MACHINE_NO ..."
+sudo apt-get update
+echo "$MACHINE_NO provisioned!"
