@@ -38,6 +38,9 @@ Vagrant.configure("2") do |config|
       # config.vm.synced_folder "../path-on-host", "/absolute-path-on-guest"
       machine.vm.synced_folder "./"+name, shared, create: true
       
+      # Also share a common folder for all machines.
+      machine.vm.synced_folder "./all", "/home/vagrant/all", create: true
+      
       machine.vm.provider "virtualbox" do |vbox|
         vbox.gui    = gui
         vbox.memory = ram
