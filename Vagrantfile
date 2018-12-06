@@ -1,5 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+# run this to remove machines and rebuild:
+# vagrant status
+# vagrant destroy <machine name, e.g. SRV-http>
+# vagrant box remove ubuntu/bionic64
+
 
 # ---- Configuration variables ----
 GUI               = false # Enable/Disable GUI
@@ -13,15 +18,15 @@ BOX               = 'ubuntu/bionic64'
 # Default shared folder in guest machine
 SHARED            = "/home/vagrant/shared"
 # Default configuration file post machine booting. This may need to chage for specific machines
-CONF_FILE         = "setup.sh"
+CONF_FILE         = "setup_all.sh"
 # Host list. Web server, MySQL plus 4 BigchainDB nodes
 HOSTS = {
-   #"SRV-http" => [NETWORK+"10", RAM, GUI, BOX, SHARED, CONF_FILE],
-   #"SRV-mysql" => [NETWORK+"20", RAM, GUI, BOX, SHARED, CONF_FILE],
-   "BC-01" => [NETWORK+"41", RAM, GUI, BOX, SHARED, CONF_FILE],
-   "BC-02" => [NETWORK+"42", RAM, GUI, BOX, SHARED, CONF_FILE],
-   #"BC-03" => [NETWORK+"43", RAM, GUI, BOX, SHARED, CONF_FILE],
-   #"BC-04" => [NETWORK+"44", RAM, GUI, BOX, SHARED, CONF_FILE],
+   "SRV-http" => [NETWORK+"10", RAM, GUI, BOX, SHARED, "setup_SRV-http.sh"],
+   #"SRV-mysql" => [NETWORK+"20", RAM, GUI, BOX, SHARED, "setup_SRV-mysql.sh"],
+   #"BC01" => [NETWORK+"41", RAM, GUI, BOX, SHARED, "setup_BC01.sh"],
+   #"BC02" => [NETWORK+"42", RAM, GUI, BOX, SHARED, CONF_FILE],
+   #"BC03" => [NETWORK+"43", RAM, GUI, BOX, SHARED, CONF_FILE],
+   #"BC04" => [NETWORK+"44", RAM, GUI, BOX, SHARED, CONF_FILE],
 }
 
 Vagrant.configure("2") do |config|
@@ -36,10 +41,10 @@ Vagrant.configure("2") do |config|
       
       # Share an additional folder to the guest VM.
       # config.vm.synced_folder "../path-on-host", "/absolute-path-on-guest"
-      machine.vm.synced_folder "./"+name, shared, create: true
+      machine.vm.synced_folder "./"+name, shared+"-"+name, create: true
       
       # Also share a common folder for all machines.
-      machine.vm.synced_folder "./all", "/home/vagrant/all", create: true
+      machine.vm.synced_folder "./shared-all", "/home/vagrant/shared-all", create: true
       
       machine.vm.provider "virtualbox" do |vbox|
         vbox.gui    = gui
