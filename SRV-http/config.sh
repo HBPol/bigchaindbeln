@@ -7,6 +7,8 @@ source ~/venv/bin/activate
 # install django
 pip install django
 pip install --upgrade pip
+pip install django mysqlclient
+
 # install BigchainDB Python Driver
 	# ... may need these dependencies:
 	# pip install --upgrade setuptools

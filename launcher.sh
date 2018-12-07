@@ -4,7 +4,6 @@ tput setaf 5 ; echo "BCELN: the blockchain-based electronic laboratory notebook.
 tput setaf 5 ; echo "Launching virtual machines... " ; tput sgr0
 # This script automates ssh access to all BC nodes and Http/MySQL servers.
 # It should run in the same directory where the Vagrantfile is located.
-# konsole -p TerminalColumns=90 -p TerminalRows=30 --noclose -e "sh -c 'vagrant status ; $SHELL'" & disown
 
 # Machines names (these must be as named in the Vagrantfile):
 #	"SRV-http"

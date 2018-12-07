@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.10.10',
+    '192.168.10.20',
 ]
 
 
@@ -77,9 +78,15 @@ WSGI_APPLICATION = 'bceln.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bceln',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'HOST': '192.168.10.20',
+        'PORT': '3306',
+        
     }
+    
 }
 
 
