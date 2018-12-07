@@ -22,7 +22,7 @@ CONF_FILE         = "setup_all.sh"
 # Host list. Web server, MySQL plus 4 BigchainDB nodes
 HOSTS = {
    "SRV-http" => [NETWORK+"10", RAM, GUI, "djangoproject/django-box-2.1", SHARED, "setup_SRV-http.sh"],
-   #"SRV-mysql" => [NETWORK+"20", RAM, GUI, BOX, SHARED, "setup_SRV-mysql.sh"],
+   "SRV-mysql" => [NETWORK+"20", RAM, GUI, "debian/contrib-stretch64", SHARED, "setup_SRV-mysql.sh"],
    #"BC01" => [NETWORK+"41", RAM, GUI, BOX, SHARED, "setup_BC01.sh"],
    #"BC02" => [NETWORK+"42", RAM, GUI, BOX, SHARED, CONF_FILE],
    #"BC03" => [NETWORK+"43", RAM, GUI, BOX, SHARED, CONF_FILE],

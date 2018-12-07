@@ -13,4 +13,4 @@ echo "Installing python virtual environment..."
 apt-get install python3-venv -y 
 
 echo "$MACHINE_NO provisioned!"
-echo "SSH into $MACHINE_NO and follow instructions in 'config.sh' within the virtual machine shared folder"
+echo "SSH into $MACHINE_NO and follow instructions in 'config.sh' within the virtual machine shared folder."
