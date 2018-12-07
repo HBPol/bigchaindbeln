@@ -1,10 +1,16 @@
 #!/bin/bash
 MACHINE_NO="Http server"
-tput setaf 5 ; echo "Provisioning $MACHINE_NO..." ; tput sgr0
-tput setaf 5 ; echo "Updating $MACHINE_NO..." ; tput sgr0
+echo "Provisioning $MACHINE_NO..."
+echo "Updating $MACHINE_NO..."
 sudo apt-get update
-tput setaf 5 ; echo "Upgrading $MACHINE_NO..." ; tput sgr0
-sudo apt-get upgrade -y
-#tput setaf 5 ; echo "Installing NGINX ..." ; tput sgr0
-#sudo apt-get install nginx -y
-tput setaf 5 ; echo "$MACHINE_NO provisioned!" ; tput sgr0
+echo "Upgrading $MACHINE_NO..."
+sudo apt-get upgrade #-y
+
+# echo "Installing NGINX ..."
+# sudo apt-get install nginx -y
+
+echo "Installing python virtual environment..."
+apt-get install python3-venv -y 
+
+echo "$MACHINE_NO provisioned!"
+echo "SSH into $MACHINE_NO and follow instructions in 'config.sh' within the virtual machine shared folder"
