@@ -21,7 +21,7 @@ SHARED            = "/home/vagrant/shared"
 CONF_FILE         = "setup_all.sh"
 # Host list. Web server, MySQL plus 4 BigchainDB nodes
 HOSTS = {
-   "SRV-http" => [NETWORK+"10", RAM, GUI, BOX, SHARED, "setup_SRV-http.sh"],
+   "SRV-http" => [NETWORK+"10", RAM, GUI, "djangoproject/django-box-2.1", SHARED, "setup_SRV-http.sh"],
    #"SRV-mysql" => [NETWORK+"20", RAM, GUI, BOX, SHARED, "setup_SRV-mysql.sh"],
    #"BC01" => [NETWORK+"41", RAM, GUI, BOX, SHARED, "setup_BC01.sh"],
    #"BC02" => [NETWORK+"42", RAM, GUI, BOX, SHARED, CONF_FILE],
@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
       
       machine.vm.hostname = name + DOMAIN
       machine.vm.network 'private_network', ip: ipaddr, netmask: NETMASK
-      machine.vm.provision "shell", path: conf_file
+      machine.vm.provision "shell", keep_color: false, path: conf_file
     end
   end # HOSTS-each
 end # Vagrant.configure
