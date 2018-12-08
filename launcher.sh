@@ -20,3 +20,6 @@ DIMENSIONS="-p TerminalColumns=90 -p TerminalRows=20"
 konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  SRV-http; $SHELL'" & disown
 konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  SRV-mysql; $SHELL'" & disown
 konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  BC01; $SHELL'" & disown
+konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  BC02; $SHELL'" & disown
+konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  BC03; $SHELL'" & disown
+konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  BC04; $SHELL'" & disown
