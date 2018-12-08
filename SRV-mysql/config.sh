@@ -7,8 +7,8 @@ sudo apt install mysql-server
 sudo mysql
 	# create new sql user and database:
 	# MariaDB [(none)]> CREATE DATABASE bceln;
-	# MariaDB [(none)]> CREATE USER 'django'@'localhost' IDENTIFIED BY 'django';
-	# MariaDB [(none)]> GRANT ALL PRIVILEGES ON bceln.* to 'django'@'localhost';
+	# MariaDB [(none)]> CREATE USER 'django'@'%' IDENTIFIED BY 'django';
+	# MariaDB [(none)]> GRANT ALL PRIVILEGES ON bceln.* to 'django'@'%';
 	# MariaDB [(none)]> FLUSH PRIVILEGES;
 
 # type this to know which port the server is runnin on
