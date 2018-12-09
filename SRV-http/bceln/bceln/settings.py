@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '192.168.10.10',
-    '192.168.10.20',
 ]
 
 
@@ -40,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core.apps.CoreConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'bceln.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -87,9 +87,8 @@ DATABASES = {
         'PASSWORD': 'django',
         'HOST': '192.168.10.20',
         'PORT': '3306',
-        
     }
-    
+    # TODO: MongoDB plugin to query BigchainDB nodes should be defined here ...
 }
 
 
@@ -130,3 +129,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Custom user model
+AUTH_USER_MODEL = 'core.User'
+
+# Settings to allow file uploading
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# This is to redirect to a specified url (home). The default redirects to '/accounts/profile/'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
+
+# This is to define static assets that are not tied to a particular app
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+    '/static/',
+]
+
+
