@@ -21,9 +21,9 @@ HOSTS = {
    "SRV-http" => [NETWORK+"10", RAM, GUI, "djangoproject/django-box-2.1", SHARED, "setup_SRV-http.sh"],
    "SRV-mysql" => [NETWORK+"20", RAM, GUI, "debian/contrib-stretch64", SHARED, "setup_SRV-mysql.sh"],
    "BC01" => [NETWORK+"41", "512", GUI, BOX, SHARED, "setup_BC01.sh"],
-   "BC02" => [NETWORK+"42", "512", GUI, BOX, SHARED, "setup_BC01.sh"],
-   "BC03" => [NETWORK+"43", "512", GUI, BOX, SHARED, "setup_BC01.sh"],
-   "BC04" => [NETWORK+"44", "512", GUI, BOX, SHARED, "setup_BC01.sh"],
+   "BC02" => [NETWORK+"42", "512", GUI, BOX, SHARED, "setup_BC02.sh"],
+   "BC03" => [NETWORK+"43", "512", GUI, BOX, SHARED, "setup_BC03.sh"],
+   "BC04" => [NETWORK+"44", "512", GUI, BOX, SHARED, "setup_BC04.sh"],
 }
 
 Vagrant.configure("2") do |config|

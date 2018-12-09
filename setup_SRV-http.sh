@@ -1,10 +1,10 @@
 #!/bin/bash
 MACHINE_NO="Http server"
-echo "Provisioning $MACHINE_NO..."
+echo "##################### --- Provisioning $MACHINE_NO... --- #####################"
 echo "Updating $MACHINE_NO..."
 sudo apt-get update
 echo "Upgrading $MACHINE_NO..."
-sudo apt-get upgrade #-y
+sudo apt-get upgrade -y
 
 # echo "Installing NGINX ..."
 # sudo apt-get install nginx -y

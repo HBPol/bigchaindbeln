@@ -8,11 +8,9 @@ source ~/venv/bin/activate
 pip install django
 pip install --upgrade pip
 pip install django mysqlclient
-
-# install BigchainDB Python Driver
-	# ... may need these dependencies:
+pip install --upgrade bigchaindb-driver
+# BigchainDB Python Driver needs these dependencies (but should install automatically with the driver):
 	# pip install --upgrade setuptools
 	# pip install cryptography
 	# pip install cryptoconditions
 	# sudo apt-get install python3-dev libssl-dev libffi-dev
-pip install -U bigchaindb-driver
