@@ -14,3 +14,5 @@ pip install --upgrade bigchaindb-driver
 	# pip install cryptography
 	# pip install cryptoconditions
 	# sudo apt-get install python3-dev libssl-dev libffi-dev
+# install PyMongo to talk to MongoDB with python
+pip install pymongo
