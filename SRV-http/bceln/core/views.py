@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from core.models import Member, User
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 
 @login_required
 def index(request):
     if request.user.is_superuser:
-        return redirect('admin')
+        return HttpResponseRedirect('/admin')
     else:
         members = Member.objects.all()
         context = {'members': members}
