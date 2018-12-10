@@ -1,0 +1,31 @@
+{% extends 'core/base_generic.html' %}
+{% block content %}
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Friend</th>
+			<th>File</th>
+			<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for member in members %}
+			<tr>
+				<td>{{ member.firstname }}</td>
+				<td>{{ member.lastname }}</td>
+				<td>{{ member.friendname.get_full_name }}</td>
+				<td><a href="{{ MEDIA_URL }}{{ member.file }}">{{ member.file }}</a></td>
+				<td>
+					<a href="edit/{{ member.id }}" class="btn btn-warning btn-sm" role="button">Edit</a>
+					<a href="delete/{{ member.id }}" class="btn btn-danger btn-sm" role="button">Delete</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="create/" class="btn btn-primary" role="button">Add new</a>
+</div>
+{% endblock %}
