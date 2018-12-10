@@ -5,9 +5,12 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    members = Member.objects.all()
-    context = {'members': members}
-    return render(request, 'core/index.html', context)
+    if request.user.is_superuser:
+        return redirect('admin')
+    else:
+        members = Member.objects.all()
+        context = {'members': members}
+        return render(request, 'core/index.html', context)
 
 def create(request):
     if request.method == "POST":
