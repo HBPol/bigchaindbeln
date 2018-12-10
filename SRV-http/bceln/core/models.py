@@ -10,7 +10,7 @@ class User(AbstractUser):
     def __str__(self):
         return self.get_full_name()
     
-
+###### Test class ##########
 class Member(models.Model):
     firstname = models.CharField(max_length=40)
     lastname = models.CharField(max_length=40)
@@ -18,5 +18,6 @@ class Member(models.Model):
     file = models.FileField(upload_to='uploads/', blank=True) # File is automatically uploaded to MEDIA_ROOT/uploads/
     def __str__(self):
         return self.firstname + " " + self.lastname
+######    END    ##########
     
     
