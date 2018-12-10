@@ -1,0 +1,33 @@
+{% extends 'core/base_generic.html' %}
+{% block content %}
+	<div class="container">
+		<form action="update/{{ members.id }}" method="POST" id="editform" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="form-group">
+				<label for="firstname">Firstname</label>
+				<input type="text" class="form-control" name="firstname" value="{{ members.firstname }}" required="required"/>
+			</div>
+			<div class="form-group">
+				<label for="lastname">Lastname</label>
+				<input type="text" class="form-control" name="lastname" value="{{ members.lastname }}" required="required"/>
+			</div>
+			<div class="form-group">
+			    <input type="file" name="file">
+		  	</div>
+			<div class="form-group">
+				<label for="friendname">Select person</label>
+				<select class="form-control" name="friendname">
+					{# loop through the user list, and set the default to the user assigned to the current instance #}
+					{% for friend in friendslist %}
+						{% if friend.id == members.friendname_id %}
+							<option value="{{ friend.id }}" selected>{{ friend.get_full_name }}</option>
+						{% else %}
+							<option value="{{ friend.id }}">{{ friend.get_full_name }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Update</button>
+		</form>
+	</div>
+{% endblock %}
