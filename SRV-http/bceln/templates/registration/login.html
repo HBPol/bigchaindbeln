@@ -15,9 +15,10 @@
 		{% endif %}
 		
 		<form class="form-login" method="post" action="{% url 'login' %}">
-			<img class="mb-4" src="" alt="Site logo" width="72" height="72">
-			<h1 class="">Welcome</h1>
-			<h2 class="">Please log in</h2>
+			{% load static %}
+			<img class="mb-4" src="{% static 'core/images/site_logo.png' %}" alt="Site logo" width="72" height="72">
+			<h1 class="">Welcome to BCELN</h1>
+			<h3 class="">Please log in</h3>
 			{% csrf_token %}
 			<div class="form-group">
 				<input type="text" class="form-control" name="username" placeholder="Username" required="required"/>
