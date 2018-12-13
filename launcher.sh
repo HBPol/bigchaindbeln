@@ -14,7 +14,7 @@ tput setaf 5 ; echo "Launching virtual machines... " ; tput sgr0
 #	"BC04"
 
 # Launch all machines as defined in the Vagrantfile
-vagrant up
+vagrant up --provision
 # Uncomment lines below to Launch a new SSH terminal for each machine
 # DIMENSIONS="-p TerminalColumns=90 -p TerminalRows=20"
 # konsole $DIMENSIONS --noclose -e "sh -c 'vagrant ssh  SRV-http; $SHELL'" & disown
